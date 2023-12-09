@@ -1,0 +1,11 @@
+config*.yml
+certs/*
+client.json
+client-req.json
+configs/*
+payload.json
+cacerts/*
+*.key
+*.crt
+*.pem
+*.csr
