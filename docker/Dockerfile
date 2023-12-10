@@ -12,8 +12,10 @@ RUN yum install -y epel-release && \
     git clone https://baltig.infn.it/fornari/s3fs-scale-tests.git && \
     cd wassh && make rpm && rpm -ivh /wassh/build/RPMS/x86_64/*.rpm && \
     groupadd --system --gid $USER_GID docker && \
+    mkdir -p /home/docker && \
     adduser --system --uid $USER_UID \
     --gid $USER_GID --home /home/docker docker && \
+    chown docker:docker -R /home/docker && \
     chown docker:docker -R /s3fs-scale-tests
 USER docker
 WORKDIR /s3fs-scale-tests
